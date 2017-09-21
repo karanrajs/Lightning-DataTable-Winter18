@@ -1,0 +1,18 @@
+<aura:component controller="lightningTableController" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:appHostable" access="global" >
+    <aura:attribute name="object" type="string" default="Contact" />
+    <aura:attribute name="fields" type="String" default="Id,Name,Email,Phone" />   
+    <aura:attribute name="sortedBy" type="string" default="Name" />
+    <aura:attribute name="sortedDirection" type="string" default="asc" />
+    <aura:attribute name="mydata" type="object" />
+    <aura:attribute name="mycolumn" type="object" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    
+    <lightning:card title="{!v.object}" iconName="standard:contact_list" >	
+ 
+  		<lightning:datatable data="{!v.mydata}" columns="{!v.mycolumn}" 
+                             onsort="{!c.updateColumnSorting}" sortedBy="{!v.sortedBy}" 
+                         	 sortedDirection="{!v.sortedDirection}" 
+                             onrowselection="{!c.getSelectedName}" keyField="Id" />
+    </lightning:card>
+</aura:component>

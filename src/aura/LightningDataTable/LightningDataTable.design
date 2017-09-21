@@ -1,0 +1,4 @@
+<design:component >
+    <design:attribute name="object" label="Object API Name" description="API Name of the Object" />
+    <design:attribute name="fields" label="Fields API Name" />
+</design:component>
